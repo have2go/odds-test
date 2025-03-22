@@ -1,14 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import VideoBackground from "./components/VideoBackground";
 import AnimatedContent from "./components/AnimatedContent";
 
 function App() {
-    const [isVideoEnded, setIsVideoEnded] = useState(false);
+    const [isAnimationStarted, setIsAnimationStarted] = useState(false);
+
+    useEffect(() => {
+        // Запускаем анимации через 5 секунд
+        const timer = setTimeout(() => {
+            setIsAnimationStarted(true);
+        }, 6000); // 5 секунд
+
+        return () => clearTimeout(timer); // Очищаем таймер при размонтировании компонента
+    }, []);
 
     return (
         <div style={{ width: "100vw", height: "100vh", overflow: "hidden" }}>
-            <VideoBackground onVideoEnd={() => setIsVideoEnded(true)} />
-            {isVideoEnded && <AnimatedContent />}
+            <VideoBackground />
+            {isAnimationStarted && <AnimatedContent />}
         </div>
     );
 }
