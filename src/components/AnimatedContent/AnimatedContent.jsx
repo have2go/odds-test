@@ -13,7 +13,7 @@ const AnimatedContent = () => {
 
             await imageControls.start({
                 opacity: 1,
-                scale: 1,
+                x: 0, // Двигаем изображение вправо до позиции x: 0
                 transition: { duration: 0.6, ease: "easeOut" },
             });
 
@@ -37,8 +37,8 @@ const AnimatedContent = () => {
                 </motion.h1>
 
                 <motion.img
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={imageControls}
+                    initial={{ opacity: 0, x: "-5%" }} // Начинаем за пределами экрана слева
+                    animate={imageControls} // Управляем анимацией через контроллер
                     src="/odds-station.png"
                     alt="ODDS Space Station"
                     className={styles.image}
