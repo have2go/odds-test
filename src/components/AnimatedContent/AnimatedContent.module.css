@@ -1,0 +1,166 @@
+/* Подключение шрифта */
+@font-face {
+    font-family: "SFPro";
+    src: url("../../../public/fonts/Sfpro/SF-Pro-Display-Medium.otf") format("opentype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SFPro";
+    src: url("../../../public/fonts/Sfpro/SF-Pro-Display-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: 1;
+    padding: 96px 120px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.leftColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+}
+
+.title {
+    font-size: 110px;
+    margin: 0;
+    font-family: "SFPro", sans-serif;
+    font-weight: 500;
+    line-height: 115px;
+}
+
+.image {
+    width: 100%; /* Занимает всю доступную ширину */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+    max-width: 723px; /* Максимальная ширина (если нужно ограничение) */
+    padding-left: 46px;
+    object-fit: contain; /* Сохраняет пропорции изображения */
+}
+
+.rightColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Расстояние между кнопками */
+}
+
+.button {
+    min-height: 74px;
+    border: 1px solid #ffffff57;
+    padding: 24px 32px;
+    font-size: 26px;
+    color: white;
+    background-color: transparent;
+    text-align: left;
+    cursor: pointer;
+    white-space: pre-wrap;
+    line-height: 100%;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "SFPro", sans-serif;
+    font-weight: 400;
+    gap: 35px;
+    position: relative;
+    overflow: hidden;
+    transition: color 1s cubic-bezier(0.25, 1, 0.25, 1), background-color 1s cubic-bezier(0.25, 1, 0.25, 1);
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    transition: bottom 1s cubic-bezier(0.25, 1, 0.25, 1);
+    z-index: -1;
+}
+
+.button:hover::before {
+    bottom: 0;
+}
+
+
+.button:hover {
+    color: black;
+}
+
+.button svg path {
+    transition: fill 1s cubic-bezier(0.25, 1, 0.25, 1);
+}
+
+.button:hover svg path {
+    fill: black;
+}
+
+@media screen and (width < 1920px) {
+    .image {
+        padding: 0;
+    }
+
+    .title {
+        font-size: 96px;
+        line-height: 100%;
+    }
+}
+
+@media screen and (width < 1600px) {
+    .container {
+        padding: 60px 80px;
+    }
+
+    .image {
+        padding: 0;
+        max-width: 600px;
+    }
+
+    .title {
+        font-size: 72px;
+        line-height: 100%;
+        padding-top: 80px;
+    }
+}
+
+@media screen and (width < 1400px) {
+    .button {
+        font-size: 20px;
+        /* padding: 12px 24px; */
+        gap: 20px;
+    }
+
+    .title {
+        padding-top: 60px;
+    }
+}
+
+@media screen and (width < 1280px) {
+    .button {
+        font-size: 16px;
+        padding: 12px 24px;
+        gap: 20px;
+    }
+
+    .image {
+        padding: 0;
+        max-width: 500px;
+    }
+
+    .title {
+        padding-top: 80px;
+        font-size: 56px;
+    }
+}

@@ -1,24 +1,26 @@
 import { useEffect, useRef } from "react";
 
-const VideoBackground = ({ onVideoEnd }) => {
+const VideoBackground = () => {
     const videoRef = useRef(null);
 
     useEffect(() => {
         const video = videoRef.current;
-        const handleEnded = () => {
-            if (onVideoEnd) onVideoEnd();
+
+        // Убедимся, что видео загружено и воспроизводится корректно
+        const handleCanPlay = () => {
+            video.play(); // Начинаем воспроизведение, если оно не началось автоматически
         };
 
-        video.addEventListener("ended", handleEnded);
-        return () => video.removeEventListener("ended", handleEnded);
-    }, [onVideoEnd]);
+        video.addEventListener("canplay", handleCanPlay);
+        return () => video.removeEventListener("canplay", handleCanPlay);
+    }, []);
 
     return (
         <video
             ref={videoRef}
             autoPlay
             muted
-            loop={false}
+            loop
             style={{
                 position: "fixed",
                 top: 0,

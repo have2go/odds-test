@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import VideoBackground from "./components/VideoBackground";
-import AnimatedContent from "./components/AnimatedContent";
+import AnimatedContent from "./components/AnimatedContent/AnimatedContent";
 
 function App() {
     const [isAnimationStarted, setIsAnimationStarted] = useState(false);
@@ -9,7 +9,7 @@ function App() {
         // Запускаем анимации через 5 секунд
         const timer = setTimeout(() => {
             setIsAnimationStarted(true);
-        }, 6000); // 5 секунд
+        }, 1000); // 5 секунд
 
         return () => clearTimeout(timer); // Очищаем таймер при размонтировании компонента
     }, []);
