@@ -31,6 +31,7 @@
     flex-direction: column;
     justify-content: space-between;
     color: white;
+    gap: 80px;
 }
 
 .title {
@@ -94,7 +95,6 @@
     bottom: 0;
 }
 
-
 .button:hover {
     color: black;
 }
@@ -131,7 +131,6 @@
     .title {
         font-size: 72px;
         line-height: 100%;
-        padding-top: 80px;
     }
 }
 
@@ -143,7 +142,7 @@
     }
 
     .title {
-        padding-top: 60px;
+        /* padding-top: 60px; */
     }
 }
 
@@ -160,7 +159,7 @@
     }
 
     .title {
-        padding-top: 80px;
+        /* padding-top: 60px; */
         font-size: 56px;
     }
 }
