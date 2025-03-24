@@ -102,74 +102,79 @@ const AnimatedContent = () => {
     }, []);
 
     return (
-        <div className={styles.container}>
+        <>
             <motion.img
                 initial={{ opacity: 0, x: "0" }} // Начинаем за пределами экрана слева
                 animate={imageControls} // Управляем анимацией через контроллер
                 src="/ellipse-top.png"
                 className={styles.shadow}
             />
-            <Link to="/" style={{ position: "absolute", top: 20, left: 20, color: "white", textDecoration: "none" }}>
-                ← Назад
-            </Link>
-            <div className={styles.leftColumn}>
-                {/* Первый заголовок */}
-                <div className="">
-                    <motion.h1
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={textControls}
-                        className={styles.title}
-                        style={{ fontSize: `${fontSizeSecond * fontSizeRatio}px` }} // Применяем пропорциональный размер
-                    >
-                        What are the odds?
-                    </motion.h1>
+            <div className={styles.container}>
+                <Link
+                    to="/"
+                    style={{ position: "absolute", top: 20, left: 20, color: "white", textDecoration: "none" }}
+                >
+                    ← Назад
+                </Link>
+                <div className={styles.leftColumn}>
+                    {/* Первый заголовок */}
+                    <div className="">
+                        <motion.h1
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={textControls}
+                            className={styles.title}
+                            style={{ fontSize: `${fontSizeSecond * fontSizeRatio}px` }} // Применяем пропорциональный размер
+                        >
+                            What are the odds?
+                        </motion.h1>
 
-                    <motion.h1
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={textControls}
-                        className={styles.title}
-                        style={{ fontSize: `${fontSizeSecond}px` }} // Применяем динамический размер шрифта
-                    >
-                        ODDS is the answer
-                    </motion.h1>
+                        <motion.h1
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={textControls}
+                            className={styles.title}
+                            style={{ fontSize: `${fontSizeSecond}px` }} // Применяем динамический размер шрифта
+                        >
+                            ODDS is the answer
+                        </motion.h1>
+                    </div>
+
+                    <motion.img
+                        initial={{ opacity: 0, x: "-5%" }} // Начинаем за пределами экрана слева
+                        animate={imageControls} // Управляем анимацией через контроллер
+                        src="/odds-station.png"
+                        alt="ODDS Space Station"
+                        className={styles.image}
+                    />
                 </div>
 
-                <motion.img
-                    initial={{ opacity: 0, x: "-5%" }} // Начинаем за пределами экрана слева
-                    animate={imageControls} // Управляем анимацией через контроллер
-                    src="/odds-station.png"
-                    alt="ODDS Space Station"
-                    className={styles.image}
-                />
-            </div>
-
-            <div className={styles.rightColumn}>
-                {["Is it a real problem?", "IDEAS", "Our approach", "We are open\nto collaborate with you"].map(
-                    (text, index) => (
-                        <motion.button
-                            key={index}
-                            initial={{ opacity: 0 }}
-                            animate={buttonControls[index]}
-                            className={styles.button}
-                        >
-                            <span>{text}</span> {/* Текст кнопки */}
-                            <svg
-                                width="33"
-                                height="8"
-                                viewBox="0 0 33 8"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
+                <div className={styles.rightColumn}>
+                    {["Is it a real problem?", "IDEAS", "Our approach", "We are open\nto collaborate with you"].map(
+                        (text, index) => (
+                            <motion.button
+                                key={index}
+                                initial={{ opacity: 0 }}
+                                animate={buttonControls[index]}
+                                className={styles.button}
                             >
-                                <path
-                                    d="M32.3536 4.35355C32.5488 4.15829 32.5488 3.84171 32.3536 3.64644L29.1716 0.464464C28.9763 0.269201 28.6597 0.269201 28.4645 0.464464C28.2692 0.659726 28.2692 0.976308 28.4645 1.17157L31.2929 4L28.4645 6.82842C28.2692 7.02369 28.2692 7.34027 28.4645 7.53553C28.6597 7.73079 28.9763 7.73079 29.1716 7.53553L32.3536 4.35355ZM4.37114e-08 4.5L32 4.5L32 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z"
-                                    fill="black"
-                                />
-                            </svg>
-                        </motion.button>
-                    )
-                )}
+                                <span>{text}</span> {/* Текст кнопки */}
+                                <svg
+                                    width="33"
+                                    height="8"
+                                    viewBox="0 0 33 8"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M32.3536 4.35355C32.5488 4.15829 32.5488 3.84171 32.3536 3.64644L29.1716 0.464464C28.9763 0.269201 28.6597 0.269201 28.4645 0.464464C28.2692 0.659726 28.2692 0.976308 28.4645 1.17157L31.2929 4L28.4645 6.82842C28.2692 7.02369 28.2692 7.34027 28.4645 7.53553C28.6597 7.73079 28.9763 7.73079 29.1716 7.53553L32.3536 4.35355ZM4.37114e-08 4.5L32 4.5L32 3.5L-4.37114e-08 3.5L4.37114e-08 4.5Z"
+                                        fill="black"
+                                    />
+                                </svg>
+                            </motion.button>
+                        )
+                    )}
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 
