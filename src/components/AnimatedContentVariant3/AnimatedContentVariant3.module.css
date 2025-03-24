@@ -1,0 +1,143 @@
+/* Подключение шрифта */
+@font-face {
+    font-family: "SFPro";
+    src: url("../../../public/fonts/Sfpro/SF-Pro-Display-Medium.otf") format("opentype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SFPro";
+    src: url("../../../public/fonts/Sfpro/SF-Pro-Display-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+.container {
+    position: relative; /* Убираем абсолютное позиционирование */
+    max-width: 1920px; /* Ограничиваем максимальную ширину */
+    width: 100%; /* Контейнер занимает доступную ширину */
+    height: 100vh;
+    margin: 0 auto; /* Центрируем по горизонтали */
+    padding: 3% 5%; /* Сохраняем отступы */
+    box-sizing: border-box; /* Учитываем отступы в ширине */
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+}
+
+.leftColumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    gap: 80px;
+}
+
+.title {
+    font-size: 110px;
+    margin: 0;
+    font-family: "SFPro", sans-serif;
+    font-weight: 500;
+    z-index: 10;
+}
+
+.image {
+    width: 38vw; /* 723px / 1920px ≈ 38% */
+    height: auto;
+    max-width: 723px; /* Ограничение для эталонного разрешения */
+    object-fit: contain;
+}
+
+.rightColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Расстояние между кнопками */
+}
+
+.button {
+    width: 470px;
+    min-height: 74px;
+    border: 1px solid #ffffff57;
+    padding: 24px 32px;
+    font-size: 26px;
+    color: white;
+    background-color: transparent;
+    text-align: left;
+    cursor: pointer;
+    line-height: 100%;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "SFPro", sans-serif;
+    font-weight: 400;
+    gap: 35px;
+    position: relative;
+    overflow: hidden;
+    transition: color 1s cubic-bezier(0.25, 1, 0.25, 1), background-color 1s cubic-bezier(0.25, 1, 0.25, 1);
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    transition: bottom 1s cubic-bezier(0.25, 1, 0.25, 1);
+    z-index: -1;
+}
+
+.button:hover::before {
+    bottom: 0;
+}
+
+.button:hover {
+    color: black;
+}
+
+.button svg path {
+    transition: fill 1s cubic-bezier(0.25, 1, 0.25, 1);
+}
+
+.button:hover svg path {
+    fill: black;
+}
+
+.shadow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    max-width: 100%; /* Ограничиваем ширину */
+    max-height: 100%; /* Ограничиваем высоту */
+    width: auto; /* Автоматическая ширина для сохранения пропорций */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+    object-fit: contain; /* Сохраняем пропорции изображения */
+}
+
+@media screen and (max-width: 1280px) {
+    .title {
+        font-size: 54px; /* Максимальный размер шрифта */
+    }
+
+    .button {
+        min-height: 50px;
+        max-width: 400px;
+        width: 100%;
+        padding: 18px 32px;
+        font-size: 20px;
+        gap: 35px;
+    }
+
+    .leftColumn {
+        gap: 40px; /* Уменьшаем расстояние между элементами */
+    }
+
+    .image {
+        width: 50vw; /* Уменьшаем ширину изображения */
+        max-width: 400px; /* Ограничиваем максимальную ширину */
+    }
+}

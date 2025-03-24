@@ -1,0 +1,151 @@
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+}
+
+.content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 3% 5%; /* Вертикальные и горизонтальные отступы */
+    box-sizing: border-box; /* Учитываем padding в ширине */
+    color: #ffffff;
+    display: flex;
+    flex-direction: column; /* Располагаем элементы вертикально */
+    overflow: hidden; /* Предотвращаем переполнение */
+}
+
+.titleFirst {
+    font-family: "SFPro", sans-serif;
+    font-weight: 500;
+    line-height: 1;
+    margin: 0;
+    white-space: nowrap; /* Запрещаем перенос текста */
+    overflow: hidden; /* Скрываем лишнее */
+    text-overflow: ellipsis; /* Добавляем многоточие при необходимости */
+    z-index: 2;
+}
+
+.titleSecond {
+    font-family: "SFPro", sans-serif;
+    font-weight: 500;
+    line-height: 1;
+    margin: 0;
+    white-space: nowrap; /* Запрещаем перенос текста */
+    overflow: hidden; /* Скрываем лишнее */
+    text-overflow: ellipsis; /* Добавляем многоточие при необходимости */
+    z-index: 2;
+}
+
+.filler {
+    flex-grow: 1; /* Занимает всё оставшееся пространство */
+    display: flex; /* Используем flexbox для распределения пространства */
+    flex-direction: row; /* Размещаем дочерние элементы горизонтально */
+    gap: 100px;
+}
+
+.left {
+    flex: 1; /* Занимает половину доступного пространства */
+    display: flex; /* Центрируем изображение внутри */
+    justify-content: center; /* Горизонтальное центрирование */
+    align-items: center; /* Вертикальное центрирование */
+    overflow: hidden; /* Скрываем лишнее, если изображение выходит за границы */
+}
+
+.image {
+    width: 100%; /* Изображение занимает всю ширину левой части */
+    height: auto; /* Сохраняет пропорции */
+    object-fit: contain; /* Растягивает изображение, чтобы оно полностью заполнило область */
+    max-height: 330px;
+    z-index: 2;
+}
+
+.right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    gap: 12px;
+    z-index: 2;
+}
+
+.button {
+    min-height: 74px;
+    max-width: 480px;
+    width: 100%;
+    border: 1px solid #ffffff57;
+    padding: 24px 32px;
+    font-size: 26px;
+    color: white;
+    background-color: transparent;
+    text-align: left;
+    cursor: pointer;
+    white-space: pre-wrap;
+    line-height: 100%;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "SFPro", sans-serif;
+    font-weight: 400;
+    gap: 35px;
+    position: relative;
+    overflow: hidden;
+    transition: color 1s cubic-bezier(0.25, 1, 0.25, 1), background-color 1s cubic-bezier(0.25, 1, 0.25, 1);
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    transition: bottom 1s cubic-bezier(0.25, 1, 0.25, 1);
+    z-index: -1;
+}
+
+.button:hover::before {
+    bottom: 0;
+}
+
+.button:hover {
+    color: black;
+}
+
+.button svg path {
+    transition: fill 1s cubic-bezier(0.25, 1, 0.25, 1);
+}
+
+.button:hover svg path {
+    fill: black;
+}
+
+.shadow {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    max-width: 100%; /* Ограничиваем ширину */
+    max-height: 100%; /* Ограничиваем высоту */
+    width: auto; /* Автоматическая ширина для сохранения пропорций */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+    object-fit: contain; /* Сохраняем пропорции изображения */
+}
+
+@media screen and (width <= 1280px) {
+    .button {
+        min-height: 50px;
+        max-width: 400px;
+        width: 100%;
+        padding: 18px 32px;
+        font-size: 20px;
+        gap: 35px;
+    }
+}

@@ -14,16 +14,16 @@
 }
 
 .container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position: relative; /* Убираем абсолютное позиционирование */
+    max-width: 1920px; /* Ограничиваем максимальную ширину */
+    width: 100%; /* Контейнер занимает доступную ширину */
+    height: 100vh;
+    margin: 0 auto; /* Центрируем по горизонтали */
+    padding: 3% 5%; /* Сохраняем отступы */
+    box-sizing: border-box; /* Учитываем отступы в ширине */
     display: flex;
-    z-index: 1;
-    padding: 96px 120px;
-    box-sizing: border-box;
     justify-content: space-between;
+    gap: 100px;
 }
 
 .leftColumn {
@@ -39,15 +39,13 @@
     margin: 0;
     font-family: "SFPro", sans-serif;
     font-weight: 500;
-    line-height: 115px;
 }
 
 .image {
-    width: 100%; /* Занимает всю доступную ширину */
-    height: auto; /* Автоматическая высота для сохранения пропорций */
-    max-width: 723px; /* Максимальная ширина (если нужно ограничение) */
-    padding-left: 46px;
-    object-fit: contain; /* Сохраняет пропорции изображения */
+    width: 38vw; /* 723px / 1920px ≈ 38% */
+    height: auto;
+    max-width: 723px; /* Ограничение для эталонного разрешения */
+    object-fit: contain;
 }
 
 .rightColumn {
@@ -57,6 +55,7 @@
 }
 
 .button {
+    width: 470px;
     min-height: 74px;
     border: 1px solid #ffffff57;
     padding: 24px 32px;
@@ -65,7 +64,6 @@
     background-color: transparent;
     text-align: left;
     cursor: pointer;
-    white-space: pre-wrap;
     line-height: 100%;
     text-transform: uppercase;
     display: flex;
@@ -107,59 +105,26 @@
     fill: black;
 }
 
-@media screen and (width < 1920px) {
-    .image {
-        padding: 0;
-    }
-
+@media screen and (max-width: 1280px) {
     .title {
-        font-size: 96px;
-        line-height: 100%;
-    }
-}
-
-@media screen and (width < 1600px) {
-    .container {
-        padding: 60px 80px;
+        font-size: 54px; /* Максимальный размер шрифта */
     }
 
-    .image {
-        padding: 0;
-        max-width: 600px;
-    }
-
-    .title {
-        font-size: 72px;
-        line-height: 100%;
-    }
-}
-
-@media screen and (width < 1400px) {
     .button {
+        min-height: 50px;
+        max-width: 400px;
+        width: 100%;
+        padding: 18px 32px;
         font-size: 20px;
-        /* padding: 12px 24px; */
-        gap: 20px;
+        gap: 35px;
     }
 
-    .title {
-        /* padding-top: 60px; */
-    }
-}
-
-@media screen and (width < 1280px) {
-    .button {
-        font-size: 16px;
-        padding: 12px 24px;
-        gap: 20px;
+    .leftColumn {
+        gap: 40px; /* Уменьшаем расстояние между элементами */
     }
 
     .image {
-        padding: 0;
-        max-width: 500px;
-    }
-
-    .title {
-        /* padding-top: 60px; */
-        font-size: 56px;
+        width: 50vw; /* Уменьшаем ширину изображения */
+        max-width: 400px; /* Ограничиваем максимальную ширину */
     }
 }
